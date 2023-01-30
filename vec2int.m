@@ -1,6 +1,6 @@
 function int = vec2int(vec, optionalRadix)
 
-    % VEC2INT Convert a polynomial to it's integer representation
+    % VEC2INT Convert a polynomial to its integer representation
 
     if (nargin == 1) 
         radix = 10;
