@@ -19,10 +19,15 @@ plot(N, prod_timing, 'r-')
 hold on
 plot(N, conv_timing, 'k--')
 
+% Now I want to develop functions that will time how long it takes to compute 
+% the multiplication of two n-digit numbers
+% However, I guess this script is really timing the difference between normal multiplication and
+% convolution multiplication. The problem is I am severely limited by the number of digits that I can use with normal 
+% multiplication.
 
-
-% I want to
-
+% I've been working with double representations but I need to actually drop that and work exclusively with 
+% polynomials. The problem then becomes that I cannot accurately verify the results of the computation.
+% But I can if I decide to use a really small base. Hmm.
 
 function t_data = time_replicates(fn, n_array) 
 
@@ -36,20 +41,6 @@ end
 
 % I want a function that takes in a fn, and n, the number of times to repeat it, then measure the total time that it takes to call the function n times
 
-function t = time_replicate(fn, n)
-
-    call_fn_n_times = @() replicate(fn, n);
-    t = timeit(call_fn_n_times);
-
-end
-
 function prod = mult(x, y)
     prod = x * y;
-end
-
-function [] = replicate(fn, n)
-%  Call a fn n times
-    for i = 1:n
-        fn();
-    end
 end
